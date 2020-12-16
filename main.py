@@ -18,22 +18,25 @@ document.add_paragraph(
     phone_number + ' | ' +email)
 
 # About Me Section
-document.add_heading('About',0)
-about_me = input('Tell me about yourself? ')
+document.add_heading('Objective',0)
+about_me = input('Write your Objective? ')
 document.add_paragraph(about_me)
 
 # Work Experience Section
 document.add_heading('Work Experience',0)
 para = document.add_paragraph()
 
-company = input("Enter your Company? ")
-from_date = input('From Date ')
-to_date = input('To Date ')
+no_of_experiences = int(input("How many Employers' Experience do you want to add "))
+# 4
 
-para.add_run(company + ' ').bold = True
-para.add_run(from_date + '-'+ to_date + '\n').italic = True
-
-experience_details = input("Describe your Experience at " +company)
-para.add_run(experience_details)
+for i in range(no_of_experiences):
+    company = input("Enter your Company? ")
+    from_date = input('From Date ')
+    to_date = input('To Date ')
+    para.add_run(company + ' ').bold = True
+    para.add_run(from_date + '-'+ to_date + '\n').italic = True
+    experience_details = input("Describe your Experience at " +company)
+    para.add_run(experience_details)
+    para.add_run('\n')
 
 document.save('cv.docx')
